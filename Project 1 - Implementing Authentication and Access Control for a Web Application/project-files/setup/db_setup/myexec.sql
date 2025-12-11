@@ -1,0 +1,16 @@
+@dropall;
+@schema/UtilitySchema;
+@populate/popPaymentMethods;
+@populate/popConType;
+@populate/popDivInfo;
+@populate/popCustomer;
+@populate/popConnection;
+@populate/popTariff;
+@populate/popTaxRates;
+@populate/popMeterReadings;
+@populate/popSubsidy;
+@populate/popBill;
+@populate/pop_PaymentDetails;
+@populate/popFixedCharges;
+commit;
+EXIT;

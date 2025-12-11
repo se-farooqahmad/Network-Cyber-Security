@@ -1,0 +1,6 @@
+fastapi[standard]
+oracledb
+pyjwt
+passlib[bcrypt]
+requests
+pwntools

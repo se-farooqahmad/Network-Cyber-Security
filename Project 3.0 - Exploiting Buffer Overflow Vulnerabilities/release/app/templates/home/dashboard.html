@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Distribution Company Dashboard</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        .top-menu {
+            display: flex;
+            /* justify-content: flex; */
+            align-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+        .top-menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px;
+        }
+        .top-menu a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>Electricity Supply Company</h1>
+    </header>
+
+    <div class="top-menu">
+        <a href="/profile">Profile</a>
+        <a href="/signout">Sign Out</a>
+    </div>
+
+    <div class="container">
+        <h1>Dashboard</h1>
+        <h4>Select one of the following options</h4>
+        <main>
+            <section class="options">
+                <a href="/bill-payment" class="button">Bill Payment</a>
+                <a href="/bill-retrieval" class="button">Bill Retrieval</a>
+                <a href="/bill-adjustments" class="button">Bill Adjustment</a>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025, CS473 - Network Security, Lahore University of Management Sciences (LUMS). All rights reserved.</p>
+    </footer>
+</body>
+</html>

